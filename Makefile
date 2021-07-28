@@ -11,7 +11,7 @@ stop:
 
 ############################## DOCKERHUB ##############################
 dchub-requirements:
-	docker push arthurtemporim/boilerplate-requirements
+	docker push tisme/bot-rocketchat:1.0
 
 ############################## BOILERPLATE ##############################
 first-run:
@@ -27,7 +27,7 @@ build-requirements:
 	docker build . \
 		--no-cache \
 		-f docker/requirements.Dockerfile \
-		-t arthurtemporim/boilerplate-requirements
+		-t tisme/bot-rocketchat:1.0
 
 build-bot:
 	docker-compose build \
@@ -109,14 +109,6 @@ webchat:
 		-d \
 		webchat
 	echo "Acesse o WEBCHAT em: http://localhost:5010"
-
-telegram:
-	docker-compose run \
-		-d \
-		--rm \
-		--service-ports \
-		bot_telegram \
-		make telegram
 
 notebooks:
 	docker-compose up \
